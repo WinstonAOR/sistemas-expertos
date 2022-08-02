@@ -10,8 +10,8 @@ Adivinar Género</big></big>
        
         <td style="vertical-align: top; width: 25%;">
         Escoja su recinto:<select name="recinto" value="Recinto" autocomplete="on">
-        <option value="p">Paraíso</option>
-        <option value="t">Turrialba</option>
+        <option value="Paraiso">Paraíso</option>
+        <option value="Turrialba">Turrialba</option>
         </select><br>
         </td>
 
@@ -20,10 +20,10 @@ Adivinar Género</big></big>
 <tr>
         <td style="vertical-align: top; width: 25%;">
         Estilo de aprendizaje:<select name="aprendizaje" value="Aprendizaje" autocomplete="on">
-        <option value="d">Divergente</option>
-        <option value="c">Convergente</option>
-        <option value="a">Asimilador</option>
-        <option value="ac">Acomodador</option>
+        <option value="DIVERGENTE">Divergente</option>
+        <option value="CONVERGENTE">Convergente</option>
+        <option value="ASIMILADOR">Asimilador</option>
+        <option value="ACOMODADOR">Acomodador</option>
         </select><br>
         </td>
 
@@ -33,7 +33,7 @@ Adivinar Género</big></big>
         <td style="vertical-align: top; width: 25%;">
         <label class="col-form-label">Último promedio para matrícula</label>
       <div class="col-sm-10">
-        <input type="text" maxlength="2" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" required>
+      <input min="1" max="10" maxlength="4" type="number" name="promedio2" value=1  required>
       </div>
         </td>
        
@@ -43,13 +43,21 @@ Adivinar Género</big></big>
     </tbody>
   </table>
   <br>
-  <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" onclick="calcular()" type="button" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+  <?php 
+
+include("algoritmos.php");
+$estilo=(isset($_POST['aprendizaje']))?$_POST['estilo']:"";
+$promedio=(isset($_POST['promedio2']))?$_POST['promedio']:"";
+$recinto=(isset($_POST['recinto']))?$_POST['recinto']:"";
+
+$result = metodo_bayesSexo($estilo,$promedio,$recinto);
+
+?>
+
+  <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" name="result" value="<?php echo "$result"?>">
 </form>
-
-
-</form>
-
 
 
 

@@ -1,8 +1,8 @@
 <?php
 $host="163.178.107.10";
-$bd="tarea_optativa";
+$bd="ampliacion_sistemas_expertos";
 $user="laboratorios";
-$pass="KmZpo.2796";
+$pass="Uy&)&nfC7QqQau.%278UQ24/=%";
 
 try {
   $connection= mysqli_connect($host, $user, $pass, $bd);

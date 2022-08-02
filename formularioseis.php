@@ -11,36 +11,68 @@ Determinar la clasificacion de la red</big></big>
       <tr>
        
         <td style="vertical-align: top; width: 25%;">
-        La confiabilidad de la red:<select name="recinto" value="Recinto" autocomplete="on">
-        <option value="re">Paraíso</option>
-        <option value="t">Turrialba</option>
+        La confiabilidad de la red:
+        <select name="red" value="red" autocomplete="on">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
         </select><br>
         </td>
-
         <td style="vertical-align: top; width: 25%;">
-        <label class="col-form-label">Último promedio para matrícula</label>
-      <div class="col-sm-10">
-        <input type="text" maxlength="2" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" required>
-      </div>
+        Número de links
+        <select name="link" id="link">
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
         </td>
-</tr>
-<tr>
-      
-       
-<td style="vertical-align: top; width: 25%;">
-        Sexo:<select name="aprendizaje" value="Aprendizaje" autocomplete="on">
-        <option value="f">Femenino</option>
-        <option value="m">Masculino</option>
+        <td style="vertical-align: top; width: 25%;">
+        Capacidad total de la red:
+        <select name="capacidad" value="capacidad" autocomplete="on">
+        <option value="Low">Baja</option>
+        <option value="Medium">Media</option>
+        <option value="High">Alta</option>
         </select><br>
-        </td>       
-
+        </td>
+        <td style="vertical-align: top; width: 25%;">
+        Costo de la red:
+        <select name="costo" value="costo" autocomplete="on">
+        <option value="Low">Bajo</option>
+        <option value="Medium">Medio</option>
+        <option value="High">Alto</option>
+        </select><br>
+        </td>
+        
       </tr>
-
     </tbody>
   </table>
   <br>
-  <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" onclick="calcular()" type="button" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <?php 
 
+    include "algoritmos.php";
+
+    $red=(isset($_POST['red']))?$_POST['red']:"";
+    $links=(isset($_POST['link']))?$_POST['link']:"";
+    $capacidad=(isset($_POST['capacidad']))?$_POST['capacidad']:"";
+    $costo=(isset($_POST['costo']))?$_POST['costo']:"";
+
+    $result = metodo_naive_bayes($red,$links,$capacidad,$costo);
+
+
+?>
+  <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" name="result" value="<?php echo "$result"?>">
 </form>
 
 
