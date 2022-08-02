@@ -91,7 +91,7 @@ function metodo_bayesEstiloRecinto($ca,$ec,$ea,$or){
 function metodo_bayesRecinto($estilo,$promedio,$sexo){
 
        //tablas necesarias
-       include ("tablas.php");
+      include ("tablas.php");
     
         $frecuPara = 1;
         $frecuTurri = 1;
