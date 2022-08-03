@@ -5,7 +5,7 @@
 
 <big><big><br>
 Determinar la clasificacion de la red</big></big>
-<form name="estilo" autocomplete="on">
+<form name="estilo" autocomplete="on" method="POST" enctype="multipart/form-data">
   <table style="text-align: left; width: 100%;" cellspacing="100" cellpadding="10" border="1">
     <tbody>
       <tr>

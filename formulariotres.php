@@ -3,7 +3,7 @@
 
 <big><big><br>
 Adivinar Género</big></big>
-<form name="estilo" autocomplete="on">
+<form name="estilo" autocomplete="on" method="POST" enctype="multipart/form-data">
   <table style="text-align: left; width: 100%;" cellspacing="100" cellpadding="10" border="1">
     <tbody>
       <tr>
@@ -47,8 +47,8 @@ Adivinar Género</big></big>
   <?php 
 
 include("algoritmos.php");
-$estilo=(isset($_POST['aprendizaje']))?$_POST['estilo']:"";
-$promedio=(isset($_POST['promedio2']))?$_POST['promedio']:"";
+$estilo=(isset($_POST['aprendizaje']))?$_POST['aprendizaje']:"";
+$promedio=(isset($_POST['promedio2']))?$_POST['promedio2']:"";
 $recinto=(isset($_POST['recinto']))?$_POST['recinto']:"";
 
 $result = metodo_bayesSexo($estilo,$promedio,$recinto);

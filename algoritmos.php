@@ -74,10 +74,6 @@ function metodo_bayesEstiloRecinto($ca,$ec,$ea,$or){
                 
                                 
         }
-        echo($freAcom);
-        echo($freAsimila);
-        echo($freConver);
-        echo($freDiver);
 
         $estilo = "";
         //Se busca el mayor valor caracteristico
@@ -121,13 +117,12 @@ function metodo_bayesRecinto($estilo,$promedio,$sexo){
                 $frecuPara = $frecuPara * $row['probabilidad'];
             endif;      
         }
-        echo($frecuPara);
-        echo($frecuTurri);
+
         //Comparar promedio 
         while ($row = mysqli_fetch_array($conexionPromedio)) {
-            if ($row['promedio'] == $promedio && $row['caracteristica'] == 'Turrialba'):
+            if ($row['promedio'] == $promedio && $row['valor'] == 'Turrialba'):
                 $frecuTurri = $frecuTurri * $row['probabilidad'];      
-            elseif ($row['promedio'] == $promedio &&  $row['caracteristica'] == 'Paraiso'):
+            elseif ($row['promedio'] == $promedio &&  $row['valor'] == 'Paraiso'):
                 $frecuPara = $frecuPara * $row['probabilidad'];
             endif;
         }
@@ -159,7 +154,7 @@ function metodo_bayesRecinto($estilo,$promedio,$sexo){
 //formulario 3
 
 function metodo_bayesSexo($estilo,$promedio,$recinto){
-    
+
         //tablas necesarias
        include ("tablas.php");
     
@@ -168,9 +163,9 @@ function metodo_bayesSexo($estilo,$promedio,$recinto){
         
         //Comparar recinto 
         while ($row = mysqli_fetch_array($conexionRecinto)) {
-            if ($row['recinto'] == $recinto && $row['caracteristica'] == 'M'): 
+            if ($row['recinto'] == $recinto && $row['valor'] == 'M'): 
                 $frecMas = $frecMas * $row['probabilidad'];        
-            elseif ( $row['recinto'] == $recinto && $row['caracteristica'] == 'F'):
+            elseif ( $row['recinto'] == $recinto && $row['valor'] == 'F'):
                 $frecFem = $frecFem * $row['probabilidad'];
             endif;
         }
@@ -186,9 +181,9 @@ function metodo_bayesSexo($estilo,$promedio,$recinto){
     
         //Comparar promedio 
         while ($row = mysqli_fetch_array($conexionPromedio)) {
-            if ($row['promedio'] == $promedio && $row['caracteristica'] == 'M'):
+            if ($row['promedio'] == $promedio && $row['valor'] == 'M'):
                 $frecMas = $frecMas * $row['probabilidad'];      
-            elseif ($row['promedio'] == $promedio &&  $row['caracteristica'] == 'F'):
+            elseif ($row['promedio'] == $promedio &&  $row['valor'] == 'F'):
                 $frecFem = $frecFem * $row['probabilidad'];
             endif;
         }
@@ -205,6 +200,7 @@ function metodo_bayesSexo($estilo,$promedio,$recinto){
         $tMasculino = $frecMas * ($masculino/77);
         $tFemenino = $frecFem * ($femenino/77);
         //Se busca el mayor
+        
         if($tMasculino > $tFemenino):
             $sexo='Masculino';
         else:
@@ -242,26 +238,26 @@ function metodo_bayesSexoRecintoPromedio($recinto,$promedio,$sexo){
       
         //Comparar promedio 
         while ($row = mysqli_fetch_array($conexionPromedio)) {     
-          if ($row['promedio'] == $promedio && $row['caracteristica'] == 'ACOMODADOR'):
+          if ($row['promedio'] == $promedio && $row['valor'] == 'ACOMODADOR'):
             $freAcom = $freAcom * $row['probabilidad'];
-          elseif ($row['promedio'] == $promedio && $row['caracteristica'] == 'ASIMILADOR'):
+          elseif ($row['promedio'] == $promedio && $row['valor'] == 'ASIMILADOR'):
             $freAsimila = $freAsimila * $row['probabilidad'];
-          elseif ($row['promedio'] == $promedio && $row['caracteristica'] == 'CONVERGENTE'):
+          elseif ($row['promedio'] == $promedio && $row['valor'] == 'CONVERGENTE'):
             $freConver = $freConver * $row['probabilidad'];
-          elseif ($row['promedio'] == $promedio && $row['caracteristica'] == 'DIVERGENTE'):
+          elseif ($row['promedio'] == $promedio && $row['valor'] == 'DIVERGENTE'):
             $freDiver = $freDiver * $row['probabilidad'];
           endif; 
         }
       
         //Comparar recinto 
         while ($row = mysqli_fetch_array($conexionRecinto)) {     
-          if ($row['recinto'] == $recinto && $row['caracteristica'] == 'ACOMODADOR'):
+          if ($row['recinto'] == $recinto && $row['valor'] == 'ACOMODADOR'):
             $freAcom = $freAcom * $row['probabilidad'];
-          elseif ($row['recinto'] == $recinto && $row['caracteristica'] == 'ASIMILADOR'):
+          elseif ($row['recinto'] == $recinto && $row['valor'] == 'ASIMILADOR'):
             $freAsimila = $freAsimila * $row['probabilidad'];
-          elseif ($row['recinto'] == $recinto && $row['caracteristica'] == 'CONVERGENTE'):
+          elseif ($row['recinto'] == $recinto && $row['valor'] == 'CONVERGENTE'):
             $freConver = $freConver * $row['probabilidad'];
-          elseif ($row['recinto'] == $recinto && $row['caracteristica'] == 'DIVERGENTE'):
+          elseif ($row['recinto'] == $recinto && $row['valor'] == 'DIVERGENTE'):
             $freDiver = $freDiver * $row['probabilidad'];
           endif; 
         }

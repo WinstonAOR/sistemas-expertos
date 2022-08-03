@@ -3,7 +3,7 @@
 
 <big><big><br>
 Determinar el tipo de profesor</big></big>
-<form name="estilo" autocomplete="on">
+<form name="estilo" autocomplete="on" method="POST" enctype="multipart/form-data">
   <table
     style="text-align: left; width: 100%;"
     cellspacing="100"
@@ -92,14 +92,6 @@ Determinar el tipo de profesor</big></big>
     $g=(isset($_POST['experiencia']))?$_POST['experiencia']:"";
     $h=(isset($_POST['web']))?$_POST['web']:"";
     $result = metodo_bayesProfesores($a,$b,$c,$d,$e,$f,$g,$h);
-    echo ($a);
-    echo($b);
-    echo($c);
-    echo($d);
-    echo($e);
-    echo($f);
-    echo($g);
-    echo($h);
 
   ?>
   <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

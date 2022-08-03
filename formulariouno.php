@@ -317,7 +317,13 @@ abierto </td>
         </tbody>    
         </table>
         <br>
-        <?php 
+        
+        
+        <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</form>
+<form method="GET">
+<?php 
         include("algoritmos.php");
         $ca = ($_POST['c7'])+($_POST['c11'])+($_POST['c15'])+($_POST['c19'])+($_POST['c31'])+($_POST['c35']);
         $ec = ($_POST['c5'])+($_POST['c9'])+($_POST['c13'])+($_POST['c17'])+($_POST['c25'])+($_POST['c29']);
@@ -325,12 +331,6 @@ abierto </td>
         $or = ($_POST['c2'])+($_POST['c10'])+($_POST['c22'])+($_POST['c26'])+($_POST['c30'])+($_POST['c34']);
         $result = metodo_bayesEstiloRecinto($ca,$ec,$ea,$or);
         ?>
-        
-        <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-</form>
-<form method="GET">
-
         <input type="text" name="result" value="<?php echo "$result"?>">
 
 </form>

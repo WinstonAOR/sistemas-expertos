@@ -3,7 +3,7 @@
 
 <big><big><br>
 Adivinar estilo de aprendizaje de un estudiante</big></big>
-<form name="estilo" autocomplete="on">
+<form name="estilo" autocomplete="on" method="POST" enctype="multipart/form-data">
   <table style="text-align: left; width: 100%;" cellspacing="100" cellpadding="10" border="1">
     <tbody>
       <tr>
@@ -18,7 +18,7 @@ Adivinar estilo de aprendizaje de un estudiante</big></big>
         <td style="vertical-align: top; width: 25%;">
         <label class="col-form-label">Último promedio para matrícula</label>
       <div class="col-sm-10">
-      <input min="1" max="10" maxlength="4" type="number" name="promedio2" value=1  required>
+      <input min="1" max="10" maxlength="4" type="number" step="any" name="promedio2" value=1  required>
       </div>
         </td>
 </tr>
