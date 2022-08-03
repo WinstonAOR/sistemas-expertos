@@ -5,56 +5,60 @@
 
 function metodo_bayesEstiloRecinto($ca,$ec,$ea,$or){
 
+  // echo($ca);
+  // echo($ec);
+  // echo($ea);
+  // echo($or);
         //tablas necesarias
         include ("tablas.php");
                 
-        $freAcom= 0;
-        $freAsimila = 0;
-        $freConver = 0;
-        $freDiver = 0;
+        $freAcom= 1;
+        $freAsimila = 1;
+        $freConver = 1;
+        $freDiver = 1;
 
         while ($row = mysqli_fetch_array($conexionEstiloRecinto)) {
                 //Comparar CA      
-                if($row['valor_caracteristico'] == $ca && $row['estilo'] == 'ACOMODADOR'):
+                if($row['valor'] == $ca && $row['estilo'] == 'ACOMODADOR'):
                         $freAcom = $freAcom * $row['ca'];
-                elseif($row['valor_caracteristico'] == $ca && $row['estilo'] == 'ASIMILADOR'):
+                elseif($row['valor'] == $ca && $row['estilo'] == 'ASIMILADOR'):
                         $freAsimila = $freAsimila * $row['ca'];
-                elseif($row['valor_caracteristico'] == $ca && $row['estilo'] == 'CONVERGENTE'):
+                elseif($row['valor'] == $ca && $row['estilo'] == 'CONVERGENTE'):
                         $freConver = $freConver * $row['ca'];
-                elseif($row['valor_caracteristico'] == $ca && $row['estilo'] == 'DIVERGENTE'):
+                elseif($row['valor'] == $ca && $row['estilo'] == 'DIVERGENTE'):
                         $freDiver = $freDiver * $row['ca'];
                 endif;
 
                 //Comparar EC   
-                if($row['valor_caracteristico'] == $ec && $row['estilo'] == 'ACOMODADOR'):
+                if($row['valor'] == $ec && $row['estilo'] == 'ACOMODADOR'):
                         $freAcom = $freAcom * $row['ec'];
-                elseif($row['valor_caracteristico'] == $ec && $row['estilo'] == 'ASIMILADOR'):
+                elseif($row['valor'] == $ec && $row['estilo'] == 'ASIMILADOR'):
                         $freAsimila = $freAsimila * $row['ec'];
-                elseif($row['valor_caracteristico'] == $ec && $row['estilo'] == 'CONVERGENTE'):
+                elseif($row['valor'] == $ec && $row['estilo'] == 'CONVERGENTE'):
                         $freConver = $freConver * $row['ec'];
-                elseif($row['valor_caracteristico'] == $ec && $row['estilo'] == 'DIVERGENTE'):
+                elseif($row['valor'] == $ec && $row['estilo'] == 'DIVERGENTE'):
                         $freDiver = $freDiver * $row['ec'];
                 endif;
 
                 //Comparar EA   
-                if($row['valor_caracteristico'] == $ea && $row['estilo'] == 'ACOMODADOR'):
+                if($row['valor'] == $ea && $row['estilo'] == 'ACOMODADOR'):
                         $freAcom = $freAcom * $row['ea'];
-                elseif($row['valor_caracteristico'] == $ea && $row['estilo'] == 'ASIMILADOR'):
+                elseif($row['valor'] == $ea && $row['estilo'] == 'ASIMILADOR'):
                         $freAsimila = $freAsimila * $row['ea'];
-                elseif($row['valor_caracteristico'] == $ea && $row['estilo'] == 'CONVERGENTE'):
+                elseif($row['valor'] == $ea && $row['estilo'] == 'CONVERGENTE'):
                         $freConver = $freConver * $row['ea'];
-                elseif($row['valor_caracteristico'] == $ea && $row['estilo'] == 'DIVERGENTE'):
+                elseif($row['valor'] == $ea && $row['estilo'] == 'DIVERGENTE'):
                         $freDiver = $freDiver * $row['ea'];
                 endif;
 
                 //Comparar OR  
-                if($row['valor_caracteristico'] == $or && $row['estilo'] == 'ACOMODADOR'):
+                if($row['valor'] == $or && $row['estilo'] == 'ACOMODADOR'):
                         $freAcom = $freAcom * $row['o_r'];
-                elseif($row['valor_caracteristico'] == $or && $row['estilo'] == 'ASIMILADOR'):
+                elseif($row['valor'] == $or && $row['estilo'] == 'ASIMILADOR'):
                         $freAsimila = $freAsimila * $row['o_r'];
-                elseif($row['valor_caracteristico'] == $or && $row['estilo'] == 'CONVERGENTE'):
+                elseif($row['valor'] == $or && $row['estilo'] == 'CONVERGENTE'):
                         $freConver = $freConver * $row['o_r'];
-                elseif($row['valor_caracteristico'] == $or && $row['estilo'] == 'DIVERGENTE'):
+                elseif($row['valor'] == $or && $row['estilo'] == 'DIVERGENTE'):
                         $freDiver = $freDiver * $row['o_r'];
                 endif;
         }
@@ -70,6 +74,10 @@ function metodo_bayesEstiloRecinto($ca,$ec,$ea,$or){
                 
                                 
         }
+        echo($freAcom);
+        echo($freAsimila);
+        echo($freConver);
+        echo($freDiver);
 
         $estilo = "";
         //Se busca el mayor valor caracteristico

@@ -33,7 +33,7 @@ Adivinar Género</big></big>
         <td style="vertical-align: top; width: 25%;">
         <label class="col-form-label">Último promedio para matrícula</label>
       <div class="col-sm-10">
-      <input min="1" max="10" maxlength="4" type="number" name="promedio2" value=1  required>
+      <input min="1" max="10" maxlength="4" type="number" step="any" name="promedio2" value=1  required>
       </div>
         </td>
        

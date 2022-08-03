@@ -2,12 +2,12 @@
 
 <big><big><br>
 Yo aprendo...</big></big>
-<form name="estilo" autocomplete="on">
-  <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2" border="1">
-    <tbody>
-    <tr>
+<form name="estilo" autocomplete="on" method="POST" enctype="multipart/form-data">
+        <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2" border="1">
+        <tbody>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
-        <select id="c1" name="c1">
+        <select name="c1" value="c1" autocomplete="on">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -40,8 +40,8 @@ involucrándome</td>
         <option value="4">4</option>
         </select>
 practicando</td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c5" name="c5">
         <option value="1">1</option>
@@ -59,7 +59,7 @@ receptivamente </td>
         </select>
 relacionando </td>
         <td style="vertical-align: top;">
-        <select id="c7" name="c7">
+        <select id="c7" name="c7" autocomplete="on" value="c7">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -67,15 +67,15 @@ relacionando </td>
         </select>
 analíticamente </td>
         <td style="vertical-align: top;">
-        <select id="c18" name="c8">
+        <select id="c8" name="c8">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         </select>
 imparcialmente </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c9" name="c9">
         <option value="1">1</option>
@@ -108,8 +108,8 @@ pensando </td>
         <option value="4">4</option>
         </select>
 haciendo </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c13" name="c13">
         <option value="1">1</option>
@@ -142,8 +142,8 @@ evaluando </td>
         <option value="4">4</option>
         </select>
 con cautela </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c17" name="c17">
         <option value="1">1</option>
@@ -176,8 +176,8 @@ lógicamente </td>
         <option value="4">4</option>
         </select>
 cuestionando </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c21" name="c21">
         <option value="1">1</option>
@@ -210,8 +210,8 @@ concreto </td>
         <option value="4">4</option>
         </select>
 activo </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c25" name="c25">
         <option value="1">1</option>
@@ -244,8 +244,8 @@ orientado hacia el futuro </td>
         <option value="4">4</option>
         </select>
 pragmático </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c29" name="c29">
         <option value="1">1</option>
@@ -278,8 +278,8 @@ aprendo más de la conceptualización </td>
         <option value="4">4</option>
         </select>
 aprendo más de la experimentación </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td style="vertical-align: top; width: 25%;">
         <select id="c33" name="c33">
         <option value="1">1</option>
@@ -312,26 +312,26 @@ racional </td>
         <option value="4">4</option>
         </select>
 abierto </td>
-      </tr>
+        </tr>
 
-    </tbody>
-  </table>
-  <br>
-  <?php 
-  include("algoritmos.php");
-  $ca = (isset($_POST['c7']))+(isset($_POST['c11']))+(isset($_POST['c15']))+(isset($_POST['c19']))+(isset($_POST['c31']))+(isset($_POST['c35']));
-  $ec = (isset($_POST['c5']))+(isset($_POST['c9']))+(isset($_POST['c13']))+(isset($_POST['c17']))+(isset($_POST['c25']))+(isset($_POST['c29']));
-  $ea = (isset($_POST['c4']))+(isset($_POST['c12']))+(isset($_POST['c24']))+(isset($_POST['c28']))+(isset($_POST['c32']))+(isset($_POST['c36']));
-  $or = (isset($_POST['c2']))+(isset($_POST['c10']))+(isset($_POST['c22']))+(isset($_POST['c26']))+(isset($_POST['c30']))+(isset($_POST['c34']));
-  $result = metodo_bayesEstiloRecinto($ca,$ec,$ea,$or);
-  ?>
-  
-  <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tbody>    
+        </table>
+        <br>
+        <?php 
+        include("algoritmos.php");
+        $ca = ($_POST['c7'])+($_POST['c11'])+($_POST['c15'])+($_POST['c19'])+($_POST['c31'])+($_POST['c35']);
+        $ec = ($_POST['c5'])+($_POST['c9'])+($_POST['c13'])+($_POST['c17'])+($_POST['c25'])+($_POST['c29']);
+        $ea = ($_POST['c4'])+($_POST['c12'])+($_POST['c24'])+($_POST['c28'])+($_POST['c32'])+($_POST['c36']);
+        $or = ($_POST['c2'])+($_POST['c10'])+($_POST['c22'])+($_POST['c26'])+($_POST['c30'])+($_POST['c34']);
+        $result = metodo_bayesEstiloRecinto($ca,$ec,$ea,$or);
+        ?>
+        
+        <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" type="submit" autocomplete="on">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </form>
 <form method="GET">
 
-    <input type="text" name="result" value="<?php echo "$result"?>">
+        <input type="text" name="result" value="<?php echo "$result"?>">
 
 </form>
 

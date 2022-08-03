@@ -45,7 +45,6 @@ Adivinar el Recinto</big></big>
     $estilo=(isset($_POST['aprendizaje2']))?$_POST['aprendizaje2']:"";
     $promedio=(isset($_POST['promedio2']))?$_POST['promedio2']:"";
     $sexo=(isset($_POST['sexo2']))?$_POST['sexo2']:"";
-    
     $result = metodo_bayesRecinto($estilo,$promedio,$sexo);
   ?>
   <font color="#ff0000"><font size="4"> ------------------</font></font><button type="submit" name="accion" value="Calcular" >Calcular</button>
