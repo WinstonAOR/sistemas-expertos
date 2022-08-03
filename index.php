@@ -1,7 +1,7 @@
 <?php include("template/cabecera.php")?>
 
 <div class="jumbotron">
-    <h1 class="display-3">Distancia de Euclides</h1>
+    <h1 class="display-3">Algoritmo Bayes</h1>
     <p class="lead">Formularios para poner en práctca el algoritmo de Bayes</p>
     <button id="submit" type="submit" onclick="showLoading()" class="btn btn-warning mt-3">Aprender</button>
     </p>
